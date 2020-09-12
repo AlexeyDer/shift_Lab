@@ -1,0 +1,8 @@
+.*
+bin/
+gradle*
+build*
+!.gitignore
+!.travis.yml
+settings.gradle
+
