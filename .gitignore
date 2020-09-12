@@ -4,5 +4,6 @@ gradle*
 build*
 !.gitignore
 !.travis.yml
+!build.gradle
 settings.gradle
 
