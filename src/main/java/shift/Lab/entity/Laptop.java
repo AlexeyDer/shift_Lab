@@ -2,7 +2,7 @@ package shift.Lab.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -10,6 +10,13 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @ToString
-public class Laptop extends Product {
+@Table(name = "laptop")
+public class Laptop{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
+
+    @Column(name = "size")
     private int size;
 }

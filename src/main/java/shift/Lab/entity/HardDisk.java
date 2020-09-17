@@ -2,7 +2,7 @@ package shift.Lab.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -10,6 +10,13 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @ToString
-public class HardDisk extends Product {
+@Table(name = "hard_disk")
+public class HardDisk{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
+
+    @Column(name = "valum")
     private String volum;
 }
