@@ -11,12 +11,14 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Table(name = "laptop")
-public class Laptop{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private int id;
+public class Laptop extends Product {
 
     @Column(name = "size")
     private int size;
+
+    public Laptop(int batchNumber, String manufacturer, double price, int numOfProdInStock, int size) {
+        super(batchNumber, manufacturer, price, numOfProdInStock);
+        this.size = size;
+    }
+
 }
