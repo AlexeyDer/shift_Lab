@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import shift.Lab.entity.HardDisk;
 import shift.Lab.entity.Laptop;
 import shift.Lab.entity.Monitor;
 import shift.Lab.entity.Pc;
@@ -43,6 +44,8 @@ public class Application {
             pcService.createPc(new Pc(12, "HP", 3.3, 5, "neitop"));
             pcService.createPc(new Pc(123, "HP", 12.3, 3, "desktop"));
             productService.createProduct(new Laptop(321, "HONOR", 77.0, 3, 17));
+            productService.createProduct(new HardDisk(321, "sss", 77.0, 3, 256));
+
         };
     }
 }
