@@ -1,7 +1,6 @@
 package shift.Lab.service;
 
 import shift.Lab.entity.Pc;
-import shift.Lab.entity.Product;
 
 import java.util.List;
 
