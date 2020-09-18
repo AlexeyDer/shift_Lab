@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shift.Lab.entity.Monitor;
-import shift.Lab.entity.Pc;
 import shift.Lab.exception.ResourceNotFoundException;
 import shift.Lab.repository.MonitorRepo;
 
