@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+@Table(name = "pc")
 public class Pc extends Product {
     @Column(name = "formFactor")
     private String formFactor;

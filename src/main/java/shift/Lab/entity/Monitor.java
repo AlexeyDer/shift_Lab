@@ -12,6 +12,7 @@ import javax.persistence.*;
 @ToString
 @Table(name = "monitor")
 public class Monitor extends Product {
+
     @Column(name = "diagonal")
     private String diagonal;
 
