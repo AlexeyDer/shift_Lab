@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shift.Lab.entity.HardDisk;
+import shift.Lab.exception.ResourceFoundMatchExeption;
 import shift.Lab.exception.ResourceNotFoundException;
 import shift.Lab.repository.HardDiskRepo;
 
@@ -18,6 +19,9 @@ public class HardDiskServiceImpl implements HardDiskService {
 
     @Override
     public HardDisk createHardDisk(HardDisk hardDisk) {
+        if (hardDiskRepo.findById(hardDisk.getId()).isPresent()) {
+            throw new ResourceFoundMatchExeption("Record already exists with id: " + hardDisk.getId());
+        }
         return this.hardDiskRepo.save(hardDisk);
     }
 

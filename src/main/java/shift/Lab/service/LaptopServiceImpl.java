@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shift.Lab.entity.Laptop;
+import shift.Lab.exception.ResourceFoundMatchExeption;
 import shift.Lab.exception.ResourceNotFoundException;
 import shift.Lab.repository.LaptopRepo;
 
@@ -19,6 +20,9 @@ public class LaptopServiceImpl implements LaptopService {
 
     @Override
     public Laptop createLaptop(Laptop laptop) {
+        if (laptopRepo.findById(laptop.getId()).isPresent()) {
+            throw new ResourceFoundMatchExeption("Record already exists with id: " + laptop.getId());
+        }
         return this.laptopRepo.save(laptop);
     }
 
