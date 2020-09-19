@@ -18,8 +18,6 @@ import shift.Lab.service.ProductService;
  *
  * @author "Alexey Derevtsov"
  */
-
-
 @SpringBootApplication
 public class Application {
 
@@ -32,11 +30,9 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
     /**
-     * Метод автоматически создает пользователей в программе
+     * Метод автоматически создает продукты нужного типа в программе
      */
-
     @Bean
     public CommandLineRunner demo() {
         return (args) -> {
