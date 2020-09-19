@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shift.Lab.entity.Pc;
-import shift.Lab.exception.ResourceFoundMatchExeption;
+import shift.Lab.exception.ResourceFoundMatchException;
 import shift.Lab.exception.ResourceNotFoundException;
 import shift.Lab.repository.PcRepo;
 
@@ -21,7 +21,7 @@ public class PcServiceImple implements PcService {
     @Override
     public Pc createPc(Pc pc) {
         if (pcRepo.findById(pc.getId()).isPresent()) {
-            throw new ResourceFoundMatchExeption("Record already exists with id: " + pc.getId());
+            throw new ResourceFoundMatchException("Record already exists with id: " + pc.getId());
         }
         return this.pcRepo.save(pc);
     }

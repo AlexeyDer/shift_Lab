@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shift.Lab.entity.Monitor;
-import shift.Lab.exception.ResourceFoundMatchExeption;
+import shift.Lab.exception.ResourceFoundMatchException;
 import shift.Lab.exception.ResourceNotFoundException;
 import shift.Lab.repository.MonitorRepo;
 
@@ -21,7 +21,7 @@ public class MonitorServiceImpl implements MonitorService {
     @Override
     public Monitor createMonitor(Monitor monitor) {
         if (monitorRepo.findById(monitor.getId()).isPresent()) {
-            throw new ResourceFoundMatchExeption("Record already exists with id: " + monitor.getId());
+            throw new ResourceFoundMatchException("Record already exists with id: " + monitor.getId());
         }
         return this.monitorRepo.save(monitor);
     }
