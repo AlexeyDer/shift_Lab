@@ -15,9 +15,18 @@ import java.util.Optional;
 @Transactional
 public class PcServiceImple implements PcService {
 
+    /**
+     * Поле для репозитория товара
+     */
     @Autowired
     private PcRepo pcRepo;
 
+    /**
+     * Метод для сохранения товара типа Pc
+     *
+     * @param pc - продукт типа Pc - кандидат на сохранение
+     * @return - сохранённый продукт, либо ошибка о том, что нельзя добавить данный товар, потому что он уже существует
+     */
     @Override
     public Pc createPc(Pc pc) {
         if (pcRepo.findById(pc.getId()).isPresent()) {
@@ -26,6 +35,12 @@ public class PcServiceImple implements PcService {
         return this.pcRepo.save(pc);
     }
 
+    /**
+     * Редактирование товара
+     *
+     * @param pc - полученный объект, который надо изменить
+     * @return - вывод измененного товара, либо ошибка о том, что такого товара не существует
+     */
     @Override
     public Pc updatePc(Pc pc) {
         Optional<Pc> pcDb = this.pcRepo.findById(pc.getId());
@@ -45,11 +60,21 @@ public class PcServiceImple implements PcService {
         }
     }
 
+    /**
+     * Поиск всех товара в БД
+     *
+     * @return - список найденных пользователей
+     */
     @Override
     public List<Pc> getAllPc() {
         return this.pcRepo.findAll();
     }
 
+    /**
+     * Поиск товара по идентификатору в БД
+     *
+     * @return - список найденных пользователей, либо вывод ошибки о том, что записать найдена
+     */
     @Override
     public Pc getPcById(int pcId) {
         Optional<Pc> pcDb = this.pcRepo.findById(pcId);

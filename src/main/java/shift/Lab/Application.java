@@ -20,15 +20,22 @@ import shift.Lab.service.ProductService;
 @SpringBootApplication
 public class Application {
 
+    /**
+     * Поле для сервиса товара
+     */
     @Autowired
     private ProductService productService;
 
+    /**
+     * Поле для сервиса товара типа pc
+     */
     @Autowired
     private PcService pcService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
     /**
      * Метод создает продукты нужного типа для начального добавления продуктов в базу данных
      */

@@ -15,9 +15,18 @@ import java.util.Optional;
 @Transactional
 public class LaptopServiceImpl implements LaptopService {
 
+    /**
+     * Поле для репозитория товара
+     */
     @Autowired
     private LaptopRepo laptopRepo;
 
+    /**
+     * Метод для сохранения товара типа Laptop
+     *
+     * @param laptop - продукт типа Pc - кандидат на сохранение
+     * @return - сохранённый продукт, либо ошибка о том, что нельзя добавить данный товар, потому что он уже существует
+     */
     @Override
     public Laptop createLaptop(Laptop laptop) {
         if (laptopRepo.findById(laptop.getId()).isPresent()) {
@@ -26,6 +35,12 @@ public class LaptopServiceImpl implements LaptopService {
         return this.laptopRepo.save(laptop);
     }
 
+    /**
+     * Редактирование товара
+     *
+     * @param laptop - полученный объект, который надо изменить
+     * @return - вывод измененного товара, либо ошибка о том, что такого товара не существует
+     */
     @Override
     public Laptop updateLaptop(Laptop laptop) {
         Optional<Laptop> laptopDb = this.laptopRepo.findById(laptop.getId());
@@ -45,11 +60,21 @@ public class LaptopServiceImpl implements LaptopService {
         }
     }
 
+    /**
+     * Поиск всех товара в БД
+     *
+     * @return - список найденных пользователей
+     */
     @Override
     public List<Laptop> getAllLaptops() {
         return this.laptopRepo.findAll();
     }
 
+    /**
+     * Поиск товара по идентификатору в БД
+     *
+     * @return - список найденных пользователей, либо вывод ошибки о том, что записать найдена
+     */
     @Override
     public Laptop getLaptopById(int laptopId) {
         Optional<Laptop> laptopDb = this.laptopRepo.findById(laptopId);
