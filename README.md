@@ -183,14 +183,21 @@ HardDisk наследует все параметры сущности Product {
 <div id='id-section3'/>
 
 #### Запуск
-Склонируйте репозиторий и произведите сборку проекта:
 
-`gradle build`
+Склонируйте репозиторий и инициализируйте wrapper:
 
-Затем запустите приложение:
+`gradle wrapper`
 
-`gradle bootRun`
+Затем запустите сборку приложение:
+
+`./gradlew build`
+
+Запустите приложение;
+
+`./gradlew bootRun`
 
 Создание **Jar** файла
 
-`gradle bootJar`
+`./gradlew bootJar`
+
+

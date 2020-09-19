@@ -14,7 +14,7 @@ apply plugin: 'io.spring.dependency-management'
 
 bootJar {
     baseName = 'shift_Lab'
-    version = '0.1'
+    version = '1.0'
 }
 
 repositories {
@@ -29,3 +29,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
 }
+
+wrapper {
+    gradleVersion = "6.1"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
