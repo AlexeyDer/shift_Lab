@@ -103,7 +103,7 @@ HardDisk наследует все параметры сущности Product {
 Пример файла для сущности Pc:
 ```
 {
-    "batchNumber":222,
+    "batchNumber":876,
     "manufacturer":"ASUS",
     "price":32.3,
     "numOfProdInStock":10,
@@ -115,7 +115,7 @@ HardDisk наследует все параметры сущности Product {
 
 Пример, чтобы выполнить **POST** запрос для настольного компьютера:
 
-     curl -H 'Content-Type:application/json' -d '{"batchNumber":222,"manufacturer":"ASUS","price":32.3,"numOfProdInStock":10,"formFactor":"desktop"}' 'localhost:8080/product/pc'
+     curl -H 'Content-Type:application/json' -d '{"batchNumber":876,"manufacturer":"ASUS","price":32.3,"numOfProdInStock":10,"formFactor":"desktop"}' 'localhost:8080/product/pc'
 
 <div id='id-section5'/>
 
@@ -151,7 +151,7 @@ HardDisk наследует все параметры сущности Product {
     
 Чтобы вывести товар по идентификатору нужно указать **id** этого товара:
     
-    GET /product/1
+    GET /product/1`
 
 <div id='id-section6'/>
 
@@ -170,9 +170,9 @@ HardDisk наследует все параметры сущности Product {
     curl -H 'Content-Type:application/json' -d '{JSON file}' 'localhost:8080/product/{ссылка на нужный тип}/{id нашего товара}'
     
     
-Например, для редактирования настольного компьютера с идентификатором 6 нужно выполнить команду:
+Например, для редактирования жесткого диска с идентификатором 5 нужно выполнить команду:
 
-    curl -X PUT -H 'Content-Type:application/json' -d '{"price":3333.0}' 'localhost:8080/product/pc/6'
+    curl -X PUT -H 'Content-Type:application/json' -d '{"batchNumber":123,"manufacturer":"ASUS","price":32.3,"numOfProdInStock":10,"capacity":128}}' 'localhost:8080/product/hard_disk/6'
 
 Где неуказанные поля будут заполненны автоматически нулевыми значениями
 
