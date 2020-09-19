@@ -1,9 +1,5 @@
 package shift.Lab.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 /**
@@ -11,9 +7,6 @@ import javax.persistence.*;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@NoArgsConstructor
-@Getter
-@Setter
 public class Product {
 
     @Id
@@ -32,11 +25,62 @@ public class Product {
     @Column(name = "numOfProdInStock")
     private int numOfProdInStock;
 
-
     public Product(int batchNumber, String manufacturer, double price, int numOfProdInStock) {
         this.batchNumber = batchNumber;
         this.manufacturer = manufacturer;
         this.price = price;
         this.numOfProdInStock = numOfProdInStock;
+    }
+
+    public Product() {
+    }
+
+    public Product(int id, int batchNumber, String manufacturer, double price, int numOfProdInStock) {
+        this.id = id;
+        this.batchNumber = batchNumber;
+        this.manufacturer = manufacturer;
+        this.price = price;
+        this.numOfProdInStock = numOfProdInStock;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setBatchNumber(int batchNumber) {
+        this.batchNumber = batchNumber;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setNumOfProdInStock(int numOfProdInStock) {
+        this.numOfProdInStock = numOfProdInStock;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getBatchNumber() {
+        return batchNumber;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getNumOfProdInStock() {
+        return numOfProdInStock;
     }
 }

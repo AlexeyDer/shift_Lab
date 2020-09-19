@@ -17,7 +17,6 @@ public class PcServiceImple implements PcService {
     @Autowired
     private PcRepo pcRepo;
 
-
     @Override
     public Pc createPc(Pc pc) {
         return this.pcRepo.save(pc);

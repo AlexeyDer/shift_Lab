@@ -1,15 +1,10 @@
 package shift.Lab.entity;
 
-import lombok.*;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
 @Table(name = "laptop")
 public class Laptop extends Product {
 
@@ -21,4 +16,18 @@ public class Laptop extends Product {
         this.size = size;
     }
 
+    public Laptop(int batchNumber, String manufacturer, double price, int numOfProdInStock) {
+        super(batchNumber, manufacturer, price, numOfProdInStock);
+    }
+
+    public Laptop() {
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 }

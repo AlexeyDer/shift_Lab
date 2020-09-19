@@ -1,15 +1,10 @@
 package shift.Lab.entity;
 
-import lombok.*;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
 @Table(name = "pc")
 public class Pc extends Product {
     @Column(name = "formFactor")
@@ -19,10 +14,24 @@ public class Pc extends Product {
         super(batchNumber, manufacturer, price, numOfProdInStock);
         this.formFactor = formFactor;
     }
+
+    public Pc() {
+    }
+
+    public Pc(String formFactor) {
+        this.formFactor = formFactor;
+    }
+
+    public Pc(int id, int batchNumber, String manufacturer, double price, int numOfProdInStock) {
+        super(id, batchNumber, manufacturer, price, numOfProdInStock);
+    }
+
+    public String getFormFactor() {
+        return formFactor;
+    }
+
+    public void setFormFactor(String formFactor) {
+        this.formFactor = formFactor;
+    }
 }
 
-// Post
-//curl -H 'Content-Type:application/json' -d '{"batchNumber":222,"manufacturer":"ASUS","price":32.3,"numOfProdInStock":10,"formFactor":"desktop"}' 'localhost:8080/product/pc'
-
-// Put
-//curl -X PUT -H 'Content-Type:application/json' -d '{"price":3333.0}' 'localhost:8080/product/pc/6'

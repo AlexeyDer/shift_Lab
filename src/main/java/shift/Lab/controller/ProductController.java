@@ -2,7 +2,10 @@ package shift.Lab.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import shift.Lab.entity.Product;
 import shift.Lab.service.ProductService;
 
@@ -20,9 +23,9 @@ public class ProductController {
         return ResponseEntity.ok().body(productService.getAllProduct());
     }
 
-    @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        return ResponseEntity.ok().body(this.productService.createProduct(product));
+    @GetMapping("{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable int id) {
+        return ResponseEntity.ok().body(this.productService.getProductById(id));
     }
 
 
