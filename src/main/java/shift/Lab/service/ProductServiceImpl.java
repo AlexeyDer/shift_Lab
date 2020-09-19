@@ -19,25 +19,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-        return productRepo.save(product);
-    }
-
-    @Override
-    public Product updateProduct(Product product) {
-        Optional<Product> productDb = this.productRepo.findById(product.getId());
-
-        if (productDb.isPresent()) {
-            Product productUpdate = productDb.get();
-            productUpdate.setId(product.getId());
-            productUpdate.setBatchNumber(product.getBatchNumber());
-            productUpdate.setManufacturer(product.getManufacturer());
-            productUpdate.setPrice(product.getPrice());
-            productUpdate.setNumOfProdInStock(product.getNumOfProdInStock());
-            productRepo.save(productUpdate);
-            return productUpdate;
-        } else {
-            throw new ResourceNotFoundException("Record not found with id: " + product.getId());
-        }
+        return this.productRepo.save(product);
     }
 
     @Override
